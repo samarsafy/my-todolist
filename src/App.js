@@ -14,6 +14,8 @@ class App extends React.Component {
   render() {
     return <div className="App">
         <CreatePost />
+        <Post />
+        <PostList />
       </div>;
   }
 }
