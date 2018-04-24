@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CreatePost from './CreatePost';
+import Post from "./Post";
+import PostList from "./PostList";
 
 class App extends React.Component {
   constructor(props){
