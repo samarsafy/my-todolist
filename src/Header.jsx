@@ -10,7 +10,7 @@ class Header extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header />
+        <p>Hallo from Header<p>
       </div>
     );
   }
