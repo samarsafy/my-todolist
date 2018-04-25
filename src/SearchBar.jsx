@@ -10,17 +10,23 @@ class SearchBar extends React.Component {
     super(props);
     this.state = {
       inputSearch: "",
-      posts: [],
-      form: {}
+      
     };
   }
-
   HandleSearch = e => {
     this.setState({
-      [e.target.name]: e.target.value;
-      const search = [...this.state.posts]
-      const searchFilter = search.filter(i => i.e.target.value.value)
+      [e.target.name]: e.target.value
     });
+    this.props.searchBtn(this.state.inputSearch)
+  }
+
+  handleButtonClick = () => {
+    this.props.addToDo(this.state.inputSearch)
+    this.setState(
+      {
+        inputSearch: ''
+      }
+    )
   }
 
   render() {
@@ -30,7 +36,7 @@ class SearchBar extends React.Component {
           <div className="nav-wrapper">
             <form>
               <div className="input-field">
-                <input name="inputSearch" type="search" required onChange = {e => this.HandleSearch(e)} value={this.state.inputSearch} />
+                <input name="inputSearch" type="search" onChange = {e => this.HandleSearch(e)} value={this.state.inputSearch} />
 
                 <label className="label-icon" htmlFor="search">
                   <i className="material-icons">search</i>
@@ -41,8 +47,7 @@ class SearchBar extends React.Component {
           </div>
         </nav>
       </div>
-    );
+    )
   }
 }
-
 export default SearchBar;

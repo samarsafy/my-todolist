@@ -12,31 +12,31 @@ class App extends React.Component {
     super(props);
     this.state = {
       db: JSON.parse(localStorage.getItem("todolist")) || [],
-      posts: []
+      todos:[]
+      
     };
   }
-
-} 
+ 
 addToDo = todoText => {
   const todos = [...this.state.todos];
-  todos.push ({text: todoText, created : Data.now(), done: false});
-  this.setState({ todos, filteredTodos: []});
+  todos.push ({text: todoText, created : Date.now(), done: false})
+  localStorage.setItem("todos", JSON.stringify(todos))
+  this.setState({ todos })
 };
 searchBtn = todoText =>{
   const todos = [ ...this.state.todos];
-  const filteredTodos = todos.filter(i => i.text.inculdes(todoText))
+  const filteredTodos = todos.filter(i => i.text.includes(todoText))
   this.setState({filteredTodos:[]});
 };
 
  
-  render() 
-  {
+  render() {
     return (
      <div className="container">
         <div className="row">
           <div className="col s12 m4 l8">
             <Header />
-            <CreatePost />
+            <CreatePost submit={this.addToDo}/>
             <PostList />
             <SearchBar addToDo={this.addToDO} searchBtn={this.searchBtn} />
           </div>
@@ -44,6 +44,6 @@ searchBtn = todoText =>{
       </div>
     );
   }
-
+}
 
 export default App;
