@@ -4,7 +4,6 @@ import React from "react";
 import Post from './Post';
 
 
-
 class PostList extends React.Component {
   constructor(props) {
     super(props);
@@ -13,15 +12,22 @@ class PostList extends React.Component {
 
   render() {
     return (
-    	<div>
+       <div>
         <h1>Todos:</h1>
+
         <small>
-          <a className="text-success mr-3" href="?state=false">show open</a>
-          <a className="text-success mr-3" href="?state=true">show done</a>
-          <a className="text-success mr-3" href="./index.html">show all</a>
+          <a className="text-success mr-3" href="?state=false">
+            show open
+          </a>
+          <a className="text-success mr-3" href="?state=true">
+            show done
+          </a>
+          <a className="text-success mr-3" href="./index.html">
+            show all
+          </a>
         </small>
-        {[1,2,3,4].map(p => <Post/>)}
         
+        {[1, 2, 3, 4].map(p => <Post />)}
       </div>
     );
   }
