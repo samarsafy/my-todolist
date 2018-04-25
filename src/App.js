@@ -1,5 +1,6 @@
+import 'materialize-css/dist/css/materialize.min.css';
+import 'materialize-css/dist/js/materialize.min.js';
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import CreatePost from './CreatePost';
 import Post from './Post';
@@ -15,12 +16,18 @@ class App extends React.Component {
   }
   
   render() {
-    return <div className="App">
-        <Header />
-        <CreatePost />
-        <Post />
-        <PostList />
-      </div>;
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col s12 m4 l8">
+            <Header />
+              <CreatePost />
+              <Post />
+            <PostList />
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 
