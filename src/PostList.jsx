@@ -11,25 +11,28 @@ class PostList extends React.Component {
   }
 
   render() {
-    return (
-       <div>
-        <h1>Todos:</h1>
+    let todos = this.props.todos;
+    todos = todos.filter(t => t.text.includes(this.props.filter))
+  /*  if(filter != []){
+      const filter = todos.filter(i => i.todos.includes(todos));
 
+    }; */
+    console.log(todos)
+    return <div>
+        <h1>Todos:</h1>
         <small>
           <a className="text-success mr-3" href="?state=false">
-            show open
+            <h6>show open</h6>
           </a>
           <a className="text-success mr-3" href="?state=true">
-            show done
+            <h6>show done</h6>
           </a>
           <a className="text-success mr-3" href="./index.html">
-            show all
+            <h6>show all</h6>
           </a>
         </small>
-        
-        {this.props.todos.map(p => <Post post={p}/>)}
-      </div>
-    );
+        {todos.map(p => <Post key={p.created} post={p} />)} 
+      </div>;
   }
 }
 

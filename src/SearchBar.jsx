@@ -9,25 +9,11 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputSearch: "",
+      
       
     };
   }
-  HandleSearch = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-    this.props.searchBtn(this.state.inputSearch)
-  }
-
-  handleButtonClick = () => {
-    this.props.addToDo(this.state.inputSearch)
-    this.setState(
-      {
-        inputSearch: ''
-      }
-    )
-  }
+  
 
   render() {
     return <div>
@@ -35,7 +21,7 @@ class SearchBar extends React.Component {
           <div className="nav-wrapper">
             <form>
               <div className="input-field">
-                <input name="inputSearch" type="search" onChange={e => this.HandleSearch(e)} value={this.state.inputSearch} />
+                <input name="inputSearch" type="search" onChange={e => this.props.HandleSearch(e)} />
 
                 <label className="label-icon" htmlFor="search">
                   <i className="material-icons">search</i>

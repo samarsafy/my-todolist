@@ -13,7 +13,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       db: JSON.parse(localStorage.getItem("todos")) || [],
-      todos: [],
+      todos: [],filter:"",
       items: ""
     };
   }
@@ -23,16 +23,22 @@ class App extends React.Component {
     const todos = [...this.state.todos];
     todos.push({ text: this.state.input, created: Date.now(), done: false });
 
-    console.log(todos);
     localStorage.setItem("todos", JSON.stringify(todos));
     this.setState({ todos });
   };
-  
- /* searchBtn = todoText => {
-    const todos = [...this.state.todos];
-    const filteredTodos = todos.filter(i => i.text.includes(todoText));
-    this.setState({ filteredTodos: [] });
-  }; */
+  HandleSearch = e => {
+    this.setState({
+      filter: e.target.value
+    });
+    
+  }
+
+  handleButtonClick = () => {
+    this.props.addToDo(this.state.inputSearch)
+    this.setState({
+      inputSearch: ''
+    })
+  };
   removeTodo = index => {
     const items = [...this.state.items];
     items.splice(index);
@@ -47,13 +53,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      < div className = "container  deep-purple lighten-4" >
         <div className="row">
           <div className="col s12 m4 l8">
             <Header />
             <CreatePost onSubmit={this.addToDo} handleChange={this.handleChange}/>
-            <PostList todos={this.state.todos}/>
-            <SearchBar searchBtn={this.searchBtn} onClick={this.removeTodo} />
+            <PostList filter= {this.state.filter} todos={this.state.todos}/>
+            <SearchBar HandleSearch={this.HandleSearch} />
           </div>
         </div>
       </div>
