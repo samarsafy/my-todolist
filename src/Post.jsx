@@ -9,6 +9,7 @@ class Post extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
  
@@ -16,7 +17,7 @@ class Post extends React.Component {
       <li id="template" className="collection-item">
       <label>
         <input type="checkbox" />
-        <span>Red</span>
+        <span>{this.props.post.text}</span>
       </label>
       <a href="#!" className="secondary-content"><i className="material-icons">cancel</i></a>
       </li>

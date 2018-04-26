@@ -1,7 +1,7 @@
 import "materialize-css/dist/css/materialize.min.css";
 import "materialize-css/dist/js/materialize.min.js";
 import React from "react";
-import Post from "./Post";
+
 
 
 
@@ -30,13 +30,12 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    return (
-      <div>
+    return <div>
         <nav>
           <div className="nav-wrapper">
             <form>
               <div className="input-field">
-                <input name="inputSearch" type="search" onChange = {e => this.HandleSearch(e)} value={this.state.inputSearch} />
+                <input name="inputSearch" type="search" onChange={e => this.HandleSearch(e)} value={this.state.inputSearch} />
 
                 <label className="label-icon" htmlFor="search">
                   <i className="material-icons">search</i>
@@ -46,8 +45,7 @@ class SearchBar extends React.Component {
             </form>
           </div>
         </nav>
-      </div>
-    )
+      </div>;
   }
 }
 export default SearchBar;

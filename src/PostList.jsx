@@ -27,7 +27,7 @@ class PostList extends React.Component {
           </a>
         </small>
         
-        {[1, 2, 3, 4].map(p => <Post />)}
+        {this.props.todos.map(p => <Post post={p}/>)}
       </div>
     );
   }
