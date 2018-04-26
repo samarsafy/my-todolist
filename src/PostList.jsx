@@ -13,10 +13,7 @@ class PostList extends React.Component {
   render() {
     let todos = this.props.todos;
     todos = todos.filter(t => t.text.includes(this.props.filter))
-  /*  if(filter != []){
-      const filter = todos.filter(i => i.todos.includes(todos));
 
-    }; */
     console.log(todos)
     return <div>
         <h1>Todos:</h1>
