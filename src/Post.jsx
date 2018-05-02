@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 class Post extends React.Component {
   constructor(props) {
     super(props);
@@ -9,19 +7,26 @@ class Post extends React.Component {
   }
 
   render() {
-    return <div>
+    return (
+      <div>
         <ul id="target" className="collection">
           <li id="template" className="collection-item">
             <label>
-              <input type="checkbox" />
+              //search in internet for the check in the input in html
+              <input checked />
               <span>{this.props.post.text}</span>
             </label>
-            <a href="#!" className="secondary-content">
+            <a
+              href="#!"
+              onClick={this.props.removeTodo}
+              className="secondary-content"
+            >
               <i className="material-icons">cancel</i>
             </a>
           </li>
         </ul>
-      </div>;
+      </div>
+    );
   }
 }
 
