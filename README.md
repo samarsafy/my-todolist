@@ -11,7 +11,9 @@
 #### so i installed the react app from the terminal and also the materialize to style the form of add todo. where i cloned a form from materialize and adjusted it to react.
 
 `npm create react-app my-todolist`
+
 `npm install react react-dom`
+
 `npm install materialize-css@next`
 
 #### the todo-list App is being renderd in terminal through the command
