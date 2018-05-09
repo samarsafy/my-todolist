@@ -12,17 +12,16 @@ class Post extends React.Component {
         <ul id="target" className="collection">
           <li id="template" className="collection-item">
             <label>
-              //search in internet for the check in the input in html
-              <input checked />
               <span>{this.props.post.text}</span>
+              <input onChange={e => this.props.handleChange(e)} />
+              <a
+                href="#!"
+                onClick={this.props.removeTodo}
+                className="secondary-content"
+              >
+                <i className="material-icons">cancel</i>
+              </a>
             </label>
-            <a
-              href="#!"
-              onClick={this.props.removeTodo}
-              className="secondary-content"
-            >
-              <i className="material-icons">cancel</i>
-            </a>
           </li>
         </ul>
       </div>

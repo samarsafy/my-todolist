@@ -20,7 +20,7 @@ class App extends React.Component {
 
   addToDo = e => {
     e.preventDefault();
-    console.log(todos);
+
     let todos = [...this.state.todos];
     todos.push({
       text: this.state.inputValue,
@@ -53,7 +53,7 @@ class App extends React.Component {
   removeTodo = index => {
     console.log(index);
     const todos = [...this.state.todos];
-    const items = todos.findIndex(i => index.text === i.index);
+
     todos.splice(index, 1);
     this.setState({ todos });
     localStorage.setItem("todos", JSON.stringify(todos));
