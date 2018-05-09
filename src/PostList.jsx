@@ -1,9 +1,7 @@
-import 'materialize-css/dist/css/materialize.min.css';
-import 'materialize-css/dist/js/materialize.min.js';
+import "materialize-css/dist/css/materialize.min.css";
+import "materialize-css/dist/js/materialize.min.js";
 import React from "react";
-import Post from './Post';
-
-
+import Post from "./Post";
 
 class PostList extends React.Component {
   constructor(props) {
@@ -12,16 +10,24 @@ class PostList extends React.Component {
   }
 
   render() {
+    let todos = this.props.todos;
+
+    // todos = todos.filter(t => t.text.includes(this.props.filter));
+
     return (
-    	<div>
+      <div>
         <h1>Todos:</h1>
-        <small>
-          <a className="text-success mr-3" href="?state=false">show open</a>
-          <a className="text-success mr-3" href="?state=true">show done</a>
-          <a className="text-success mr-3" href="./index.html">show all</a>
-        </small>
-        {[1,2,3,4].map(p => <Post/>)}
-        
+
+        {todos.map(p => (
+          <Post
+            todos={todos}
+            removeTodo={this.props.removeTodo}
+            markAsDone={this.props.markAsDone}
+            moveItem={this.props.moveItem}
+            key={p.created}
+            post={p}
+          />
+        ))}
       </div>
     );
   }
