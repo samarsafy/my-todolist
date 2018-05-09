@@ -24,4 +24,4 @@
 
 #### the index.js has a router, where i render the whole app from there
 
-![here is an image for the working App](my-todolist/my-todolist.png)
+![here is an image for the working App](https://github.com/samarsafy/my-todolist/blob/master/my-todolist.png)
